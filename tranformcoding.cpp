@@ -1,22 +1,23 @@
 #include "tranformcoding.h"
-using namespace cv;
-using namespace std;
 
 void Tranformcoding::FidelityCriteria(const Mat &compressed,  const Mat &decompressed)
 {
     if (compressed.size!=decompressed.size||compressed.type()!=decompressed.type())
     {
-        cout<<"the compressed and decoompressed images are not in the same szie or in the same type"<<endl
-           <<"Please check your two images"<<endl;
+        cout<<"----------------------------------------------"<<endl;
+        cout<<"error:nothing done because the two images are not in the same size or type "<<endl
+           <<"It is recommended to check your two images"<<endl;
+        cout<<"----------------------------------------------"<<endl;
         return ;
     }
+
     SNR=norm(decompressed,NORM_L2);
     ems=norm(compressed,decompressed,NORM_L2);
     SNR=pow((SNR/ems),2);
     ems=sqrt(ems*ems/(compressed.rows*compressed.cols));
 }
 
-void Tranformcoding::perform(  const Mat &InputArray,  Mat &OutputArray, const int reserve, const String flag) {
+void Tranformcoding::perform(  const Mat &InputArray,  Mat &OutputArray, const int reserve, const int flag) {
     OutputArray=InputArray.clone();
     OutputArray.convertTo(OutputArray,CV_32F);
     float t[8][8]={ {16,11,10,16,24,40,51,61},   {12,12,14,19,26,58,60,55},
@@ -27,10 +28,10 @@ void Tranformcoding::perform(  const Mat &InputArray,  Mat &OutputArray, const i
     for (int u(0);  u<OutputArray.rows/8;  ++u){
         for (int v(0);  v<OutputArray.cols/8;  ++v){
             Mat temp(OutputArray,Rect(v*8,u*8,8,8));
-            if (flag=="dft") {   Fouriercoding(temp, Z, reserve);  }
-            else if (flag=="dct") {       Cosinecoding(temp, Z, reserve);  }
+            if (flag==1) {   Fouriercoding(temp, Z, reserve);  }
+            else if (flag==0) {    Cosinecoding(temp, Z, reserve);  }
             else  {
-                std::cout<<"no matching fuction call,maybe the flag is wrong"<<std::endl;
+                std::cout<<"--no matching fuction call,maybe the flag is wrong--"<<std::endl;
                 OutputArray.convertTo(OutputArray,CV_8U);    return;}
         }
     }
@@ -78,11 +79,11 @@ void Tranformcoding::Fouriercoding( Mat &InputArray,  Mat &Z,  const int reserve
 
     multiply(planes[1],Z,planes[1]);
     merge(planes,2,OutputArrayArr);
-    dft(OutputArrayArr,OutputArrayArr,DFT_INVERSE+DFT_SCALE|DFT_REAL_OUTPUT);   //finally,to perform idft
+    dft(OutputArrayArr,OutputArrayArr,DFT_INVERSE+DFT_SCALE+DFT_REAL_OUTPUT);   //finally,to perform idft
     OutputArrayArr.copyTo(InputArray);
 }
 
-void Tranformcoding::Imagentropy(const Mat &InputArray, const String flag) {
+void Tranformcoding::Imagentropy(const Mat &InputArray, const int flag) {
     int array[766]={0};
     {
         int row=InputArray.rows;
@@ -93,10 +94,10 @@ void Tranformcoding::Imagentropy(const Mat &InputArray, const String flag) {
         for (int i(0); i<row; ++i) {
             for (int j (0);j<col; ++j){
                 const  uchar* p =InputArray.ptr<uchar>(i);
-                if (flag=="FIRST_ORDER") {
+                if (flag==2) {
                     index=p[j]+(j!=col-1)*p[j+1];  }
 
-                else if(flag=="SECOND_ORDER") {
+                else if(flag==3) {
                     index=(j!=0)*p[j-1]+p[j]+(j!=col-1)*p[j+1];}
                 array[index]++;
             }
