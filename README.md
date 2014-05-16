@@ -36,9 +36,9 @@
 1. DCT 编码，保留8个系数，输出0阶熵：
 ============
 结果如下：
-
 原图：
-！[alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/oringnal.png)
+
+![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/oringnal.png)
 
 效果图：
 
@@ -51,9 +51,7 @@
 
 2.  DCT 编码,保留4个系数,输出0阶熵：
 =====================
-
 结果如下：
-
 效果图：
 
 ![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/dct_4_reserve.png)
@@ -67,7 +65,6 @@
 3.  DCT 编码,保留2个系数,输出0阶熵：
 ====================
 结果如下：
-
 效果图：
 
 ![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/dct_2_reserve.png)
@@ -83,6 +80,7 @@
 ![at tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/dft_4_reserve.png)
 
 信息熵及保真度
+
 ![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/result_dft_4_reserve.png)
 
 5.  DFT 编码,保留8个系数,输出0阶熵：
