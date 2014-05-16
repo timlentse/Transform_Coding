@@ -2,7 +2,7 @@
 ===============
 
 这是数字图像处理手册关于`project-8 `实验报告
-查看实验手册电解[labproject](https://drive.google.com/file/d/0BwHUE1e8o2K1bHJEeWNEQnBXYm8/edit?usp=sharing "实验手册链接地址")
+查看实验手册点击[labproject](https://drive.google.com/file/d/0BwHUE1e8o2K1bHJEeWNEQnBXYm8/edit?usp=sharing "实验手册链接地址")
 
 实验内容：
 ==============
@@ -18,7 +18,7 @@
 实验原理：
 ===========
 1. 保真度
-关于保真度的原理我没太多的解释的。我们可以参考书本有关图像保真度的定义，它描述的是原图像跟压缩后的图像的信息保留程度，用均方根误差ems跟信噪比SNR来表征，这是我维基的[链接](http://en.wikipedia.org/wiki/Fidelity)。
+关于保真度的原理我没太多的解释的。我们可以参考书本有关图像保真度的定义，它描述的是原图像跟压缩后的图像的信息保留程度，用均方根误差ems跟信噪比SNR来表征，这是我找的的维基[链接](http://en.wikipedia.org/wiki/Fidelity)。
 
 2. 信息熵：
 关于图像的信息熵的定义以及计算可以参考书本，当然，懒得翻书的话可以点击[here](http://hustlg.bokee.com/1600245.html)
@@ -32,4 +32,13 @@
 
 实验结果讨论：
 ============
+说明： 程序里面的Tranformcoding 类已经实现了关于以上实验任务的功能 ，、FidelityCriteria、求保真度，、perform、执行块转换编码，、Imagentropy、执行信息熵的计算,这样的花我们的程序就会变得很简单了，我们只要创建该类的对象就可以轻松的调用方法来完成我们的实验任务，而且通过输入不同的参数以及标志位，我们可以比较不同的结果。
+1.DCT 编码，保留8个系数，输出0阶熵：
+结果如下：
+原图：
+！[alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/oringnal.png)![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/dct_8_reserve.png)
+
+信息熵及保真度：
+![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/5.png)
+
 
