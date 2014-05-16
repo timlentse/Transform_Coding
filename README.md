@@ -33,12 +33,49 @@
 实验结果讨论：
 ============
 说明： 程序里面的Tranformcoding 类已经实现了关于以上实验任务的功能 ，、FidelityCriteria、求保真度，、perform、执行块转换编码，、Imagentropy、执行信息熵的计算,这样的花我们的程序就会变得很简单了，我们只要创建该类的对象就可以轻松的调用方法来完成我们的实验任务，而且通过输入不同的参数以及标志位，我们可以比较不同的结果。
-1.DCT 编码，保留8个系数，输出0阶熵：
+1. DCT 编码，保留8个系数，输出0阶熵：
+============
 结果如下：
 原图：
-！[alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/oringnal.png)![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/dct_8_reserve.png)
+
+！[alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/oringnal.png)
+效果图：
+
+![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/dct_8_reserve.png)
 
 信息熵及保真度：
+
 ![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/5.png)
 
+2.  DCT 编码，保留4个系数，输出0阶熵：
+=====================
+结果如下：
+效果图：
+![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/dct_4_reserve.png)
 
+信息熵及保真度
+![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/result_dct_4_reserve.png)
+
+3.  DCT 编码，保留2个系数，输出0阶熵：
+====================
+结果如下：
+效果图：
+![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/dct_2_reserve.png)
+信息熵及保真度
+![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/result_dct_2_reserve.png)
+
+4.  DFT 编码，保留4个系数，输出0阶熵：
+====================
+效果图：
+![at tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/dft_4_reserve.png)
+
+信息熵及保真度
+![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/result_dft_4_reserve.png)
+
+5.  DFT 编码，保留8个系数，输出0阶熵：
+=====================================
+效果图
+![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/dft_8_reserve.png)
+
+信息熵及保真度
+![alt tag](https://raw.githubusercontent.com/timlentse/tranfrom-coding/master/result_dft_8_reserve.png)
